@@ -9,3 +9,7 @@ __DESCRIPTION__
 - Keep `e2e/smoke.spec.js` passing (`npm test`). Update its `READY` selector to an element that only appears once the app has rendered.
 - After visible UI changes, run `npm run screenshot` and commit the new `preview.png`. It's used for link previews and on https://corey.sciu.to/projects/.
 - The repo's description, homepage URL and `corey-app` topic are what list it on the projects page. Keep the description to one plain sentence.
+- Visible text: labels, not sentences. A note is one short line; explanations go in the README.
+- Put logic in plain files with no DOM and unit-test it. Browser tests should cover the main flows at desktop
+  and phone widths, with an accessibility check.
+- Before calling the app done, check it against "App standards" in ~/.claude/CLAUDE.md.
