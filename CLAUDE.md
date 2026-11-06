@@ -2,14 +2,17 @@
 
 __DESCRIPTION__
 
-## Conventions
+Follow the app standards in [csciuto/app-template STANDARDS.md](https://github.com/csciuto/app-template/blob/main/STANDARDS.md).
+In short: tests gate the deploy; logic in plain, unit-tested files; browser tests at desktop and phone size with
+accessibility checks; footer with contact and version; labels, not sentences. Commit and push freely once
+tests pass.
 
-- Static site, no build step and no framework unless there's a real need. GitHub Pages serves `main` at https://corey.sciu.to/__NAME__/.
-- Keep `index.html` at the repo root. If the app moves (e.g. into `docs/`), update the repo's homepage URL, the `og:` tags, and `APP`/`PREVIEW` in `e2e/smoke.spec.js` to match.
-- Keep `e2e/smoke.spec.js` passing (`npm test`). Update its `READY` selector to an element that only appears once the app has rendered.
-- After visible UI changes, run `npm run screenshot` and commit the new `preview.png`. It's used for link previews and on https://corey.sciu.to/projects/.
-- The repo's description, homepage URL and `corey-app` topic are what list it on the projects page. Keep the description to one plain sentence.
-- Visible text: labels, not sentences. A note is one short line; explanations go in the README.
-- Put logic in plain files with no DOM and unit-test it. Browser tests should cover the main flows at desktop
-  and phone widths, with an accessibility check.
-- Before calling the app done, check it against "App standards" in ~/.claude/CLAUDE.md.
+## This app
+
+- Lives at https://corey.sciu.to/__NAME__/. `.github/workflows/deploy.yml` tests, stamps the version and
+  publishes on every push to `main`.
+- Keep `index.html` at the repo root. If the app moves (e.g. into `docs/`), update the repo's homepage URL, the
+  `og:` tags, the workflow's version-stamp file list, and `APP`/`PREVIEW` in `e2e/smoke.spec.js`.
+- `READY` in `e2e/smoke.spec.js` should be an element that only appears once the app has rendered.
+- The repo's description, homepage URL and `corey-app` topic list it on https://corey.sciu.to/projects/. Keep
+  the description to one plain sentence.

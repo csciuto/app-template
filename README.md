@@ -6,11 +6,13 @@ __DESCRIPTION__
 
 ## Development
 
-No build step: plain HTML, CSS and JavaScript, published by GitHub Pages from `main`.
+No build step: plain HTML, CSS and JavaScript. Each push to `main` runs the tests in GitHub Actions and, if they
+pass, publishes to GitHub Pages with a version stamp.
 
 ```bash
 npm run serve                                     # http://localhost:8090
 npm install && npx playwright install chromium   # first time only
-npm test                                          # the app loads without JavaScript errors
+npm test                                          # unit tests (node --test)
+npm run test:e2e                                  # browser tests, desktop and phone, with accessibility checks
 npm run screenshot                                # refreshes preview.png, used for link previews
 ```

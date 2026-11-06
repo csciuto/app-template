@@ -7,7 +7,7 @@ const APP = '/';
 const PREVIEW = 'preview.png';
 const READY = '#app';
 
-test('app loads without errors', async ({ page }) => {
+test('app loads without errors @desktop', async ({ page }) => {
   const errors = [];
   page.on('pageerror', (e) => errors.push(e.message));
   await page.setViewportSize({ width: 1200, height: 630 });
@@ -19,4 +19,10 @@ test('app loads without errors', async ({ page }) => {
     await page.waitForTimeout(750);
     await page.screenshot({ path: PREVIEW });
   }
+});
+
+test('footer shows a contact and the version', async ({ page }) => {
+  await page.goto(APP);
+  await expect(page.locator('footer')).toContainText('@gmail.com');
+  await expect(page.locator('.version')).toHaveText(/^(dev|v1\.\d+)$/);
 });
