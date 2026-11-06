@@ -26,3 +26,11 @@ test('footer shows a contact and the version', async ({ page }) => {
   await expect(page.locator('footer')).toContainText('@gmail.com');
   await expect(page.locator('.version')).toHaveText(/^(dev|v1\.\d+)$/);
 });
+
+test('contact and a link back to the projects page', async ({ page }) => {
+  for (const p of [APP]) {
+    await page.goto(p);
+    await expect(page.getByText(/corey\.sciuto\+\w+@gmail\.com/).first()).toBeAttached();
+    await expect(page.locator('a[href="https://corey.sciu.to/projects/"]').first()).toBeAttached();
+  }
+});

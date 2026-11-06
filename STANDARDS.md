@@ -11,7 +11,8 @@ in place; the rest is judgment. Each app's CLAUDE.md links here.
   `v1.<number of commits>`. Add the span to each page.
 - **Desktop and phone.** Every browser test runs at both sizes. Tag a desktop-only test `@desktop`.
 - **Accessibility.** `e2e/a11y.spec.js` runs axe on each page. Add new pages to its list.
-- **Footer** with a contact address (`corey.sciuto+<app>@gmail.com`) and the version.
+- **Footer** with a contact address (`corey.sciuto+<app>@gmail.com`), a "More projects" link to
+  https://corey.sciu.to/projects/, and the version. Every page shows them or links to a help page that does.
 - **Link previews.** `og:` tags and `preview.png` (`npm run screenshot`), also used on the projects page.
 
 ## Judgment
