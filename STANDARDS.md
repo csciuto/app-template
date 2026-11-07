@@ -25,6 +25,8 @@ in place; the rest is judgment. Each app's CLAUDE.md links here.
 - **Everything worth sharing is in the URL.**
 - **Visible text: labels, not sentences.** A note is one short line. Explanations go in a help page or the
   README.
+- **American spelling** (center, color, kilometer) in text, code and docs. Keep proper names and quoted titles
+  as written (Centre County, a source titled "The centre wheel").
 - **A short help page** once an app has more than a few controls, linked from the footer.
 - **Fair use and data.** Credit data sources in the footer or help page; prefer public-domain or openly
   licensed data, and keep images small.
