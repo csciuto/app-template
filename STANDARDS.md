@@ -11,7 +11,7 @@ in place; the rest is judgment. Each app's CLAUDE.md links here.
   for what differs (`site`, `stamp`, `python-test`, `after-build`). Change the steps in `app.yml`; for a
   breaking change, tag `v2` and move apps over one at a time. After a compatible change, move the `v1` tag.
 - **Version stamp.** The workflow replaces `dev` in every `<span class="version" title="Version">` on the pages
-  listed in `stamp` with `v1.<number of commits>`, and writes `version.json`. Add the span to each page.
+  listed in `stamp` with `v1.<number of commits>`, writes `version.json`, and adds `?v=<version>` to those pages' local `.js`/`.css` links so browsers never mix a new page with cached old scripts. Add the span to each page.
 - **Desktop and phone.** Every browser test runs at both sizes. Tag a desktop-only test `@desktop`.
 - **Accessibility.** `e2e/a11y.spec.js` runs axe on each page. Add new pages to its list.
 - **Footer** with a contact address (`corey.sciuto+<app>@gmail.com`), a "More projects" link to
