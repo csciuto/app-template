@@ -4,6 +4,8 @@
 
 __DESCRIPTION__
 
+Built with [Claude Code](https://claude.com/claude-code).
+
 ## Development
 
 No build step: plain HTML, CSS and JavaScript. Each push to `main` runs the tests in GitHub Actions and, if they

@@ -30,6 +30,8 @@ in place; the rest is judgment. Each app's CLAUDE.md links here.
   README.
 - **American spelling** (center, color, kilometer) in text, code and docs. Keep proper names and quoted titles
   as written (Centre County, a source titled "The centre wheel").
+- **AI disclosure:** one line under the README's Live link, `Built with [Claude Code](https://claude.com/claude-code).`
+  (name the other tools too if others were used). The projects page footer says the same. Not in the app UI.
 - **A short help page** once an app has more than a few controls, linked from the footer.
 - **Fair use and data.** Credit data sources in the footer or help page; prefer public-domain or openly
   licensed data, and keep images small.
