@@ -7,8 +7,11 @@ in place; the rest is judgment. Each app's CLAUDE.md links here.
 
 - **Tests gate the deploy.** `.github/workflows/deploy.yml` runs the unit tests and the browser tests on every
   push to `main` and publishes to Pages only if they pass. Pages' source is "GitHub Actions", not the branch.
-- **Version stamp.** The workflow replaces `dev` in every `<span class="version" title="Version">` with
-  `v1.<number of commits>`. Add the span to each page.
+- **One shared workflow.** Each app's `deploy.yml` only calls `.github/workflows/app.yml@v1` here, with inputs
+  for what differs (`site`, `stamp`, `python-test`, `after-build`). Change the steps in `app.yml`; for a
+  breaking change, tag `v2` and move apps over one at a time. After a compatible change, move the `v1` tag.
+- **Version stamp.** The workflow replaces `dev` in every `<span class="version" title="Version">` on the pages
+  listed in `stamp` with `v1.<number of commits>`, and writes `version.json`. Add the span to each page.
 - **Desktop and phone.** Every browser test runs at both sizes. Tag a desktop-only test `@desktop`.
 - **Accessibility.** `e2e/a11y.spec.js` runs axe on each page. Add new pages to its list.
 - **Footer** with a contact address (`corey.sciuto+<app>@gmail.com`), a "More projects" link to
