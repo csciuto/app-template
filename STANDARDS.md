@@ -33,6 +33,12 @@ in place; the rest is judgment. Each app's CLAUDE.md links here.
 - **AI disclosure:** one line under the README's Live link, `Built with [Claude Code](https://claude.com/claude-code).`
   (name the other tools too if others were used). The projects page footer says the same. Not in the app UI.
 - **A short help page** once an app has more than a few controls, linked from the footer.
+- **`ARCHITECTURE.md`: how it's built**, for an engineer reading the repo: what it runs on (browser APIs,
+  libraries with versions, dev tools), the file layout with one line per file, how the pieces fit (a mermaid
+  diagram), the core techniques and data formats, how it's tested and deployed, and known limits. Link it from
+  the README's top and the help page footer ("How it's built"); the projects page links it automatically.
+  Update it when the structure changes. [meowpiano's](https://github.com/csciuto/meowpiano/blob/main/ARCHITECTURE.md)
+  is the model.
 - **Fair use and data.** Credit data sources in the footer or help page; prefer public-domain or openly
   licensed data, and keep images small.
 - **Every control answers a question.** Add features when there's a concrete question behind them; don't
@@ -43,3 +49,4 @@ in place; the rest is judgment. Each app's CLAUDE.md links here.
 - Commit and push freely once tests pass. Ask before deleting repos, force-pushing or rewriting history.
 - Extend, don't rewrite. Ask before redesigning an app.
 - After visible UI changes, run `npm run screenshot` and commit `preview.png`.
+- After structural changes (new files, libraries, formats), update `ARCHITECTURE.md`.

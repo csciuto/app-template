@@ -4,7 +4,7 @@ __DESCRIPTION__
 
 Follow the app standards in [csciuto/app-template STANDARDS.md](https://github.com/csciuto/app-template/blob/main/STANDARDS.md).
 In short: tests gate the deploy; logic in plain, unit-tested files; browser tests at desktop and phone size with
-accessibility checks; footer with contact and version; labels, not sentences. Commit and push freely once
+accessibility checks; footer with contact and version; labels, not sentences; `ARCHITECTURE.md` kept current. Commit and push freely once
 tests pass.
 
 ## This app

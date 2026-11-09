@@ -2,6 +2,8 @@
 
 **Live:** [corey.sciu.to/__NAME__](https://corey.sciu.to/__NAME__/)
 
+How it's built: [ARCHITECTURE.md](ARCHITECTURE.md).
+
 __DESCRIPTION__
 
 Built with [Claude Code](https://claude.com/claude-code).
