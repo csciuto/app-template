@@ -11,7 +11,13 @@ in place; the rest is judgment. Each app's CLAUDE.md links here.
   for what differs (`site`, `stamp`, `python-test`, `after-build`). Change the steps in `app.yml`; for a
   breaking change, tag `v2` and move apps over one at a time. After a compatible change, move the `v1` tag.
 - **Version stamp.** The workflow replaces `dev` in every `<span class="version" title="Version">` on the pages
-  listed in `stamp` with `v1.<number of commits>`, writes `version.json`, and adds `?v=<version>` to those pages' local `.js`/`.css` links so browsers never mix a new page with cached old scripts. Add the span to each page.
+  listed in `stamp` with `v1.<number of commits>` and writes `version.json`. Add the span to each page.
+- **A reload gets the new version.** GitHub Pages lets browsers keep files for ten minutes, so the workflow
+  (`.github/scripts/stamp.py`, tested by `test_stamp.py` beside it) adds `?v=<version>` to every reference from
+  one file of the site to another: scripts, styles, images and data named in the stamped pages, and every
+  relative `import`, `import()` and `new URL('./x.js', import.meta.url)` in the site's scripts. Data a script
+  fetches by a built-up address can't be found that way: add the version yourself, from the page's version
+  span, as `sounds/a.ogg?v=` + `document.querySelector('[title="Version"]').textContent`.
 - **Desktop and phone.** Every browser test runs at both sizes. Tag a desktop-only test `@desktop`.
 - **Accessibility.** `e2e/a11y.spec.js` runs axe on each page. Add new pages to its list.
 - **Footer** with a contact address (`corey.sciuto+<app>@gmail.com`), a "More projects" link to
