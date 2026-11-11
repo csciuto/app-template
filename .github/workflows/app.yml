@@ -3,7 +3,7 @@
 #
 #   jobs:
 #     app:
-#       uses: csciuto/app-template/.github/workflows/app.yml@v2
+#       uses: csciuto/app-template/.github/workflows/app.yml@v3
 #       with:
 #         stamp: index.html help.html
 #
@@ -59,8 +59,10 @@ jobs:
         run: pip install -r requirements-test.txt && ${{ inputs.python-test }}
       - if: inputs.browser-test != ''
         run: |
-          if [ -f package.json ]; then npx playwright install --with-deps chromium
-          else python -m playwright install --with-deps chromium; fi
+          # --with-deps runs apt, which sometimes hangs on a slow mirror: give it four minutes, then install
+          # the browser alone (the runner image already has what Chromium needs)
+          if [ -f package.json ]; then PW="npx playwright"; else PW="python -m playwright"; fi
+          timeout 240 $PW install --with-deps chromium || $PW install chromium
           ${{ inputs.browser-test }}
       - uses: actions/upload-artifact@v4
         if: failure()

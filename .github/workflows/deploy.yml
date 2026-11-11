@@ -20,4 +20,4 @@ concurrency:
 jobs:
   app:
     if: github.repository != 'csciuto/app-template'   # the template itself isn't an app
-    uses: csciuto/app-template/.github/workflows/app.yml@v2
+    uses: csciuto/app-template/.github/workflows/app.yml@v3
