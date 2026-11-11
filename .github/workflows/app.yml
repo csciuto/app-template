@@ -3,7 +3,7 @@
 #
 #   jobs:
 #     app:
-#       uses: csciuto/app-template/.github/workflows/app.yml@v1
+#       uses: csciuto/app-template/.github/workflows/app.yml@v2
 #       with:
 #         stamp: index.html help.html
 #
@@ -82,10 +82,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/checkout@v4      # this workflow's own scripts, at the version the app calls
+      - uses: actions/checkout@v4      # this workflow's own scripts, at the same commit as this file
         with:
           repository: csciuto/app-template
-          ref: v1
+          ref: ${{ github.job_workflow_sha }}
           path: .app-template
           sparse-checkout: .github/scripts
       - name: Build the site

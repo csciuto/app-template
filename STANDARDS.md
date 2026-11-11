@@ -7,9 +7,10 @@ in place; the rest is judgment. Each app's CLAUDE.md links here.
 
 - **Tests gate the deploy.** `.github/workflows/deploy.yml` runs the unit tests and the browser tests on every
   push to `main` and publishes to Pages only if they pass. Pages' source is "GitHub Actions", not the branch.
-- **One shared workflow.** Each app's `deploy.yml` only calls `.github/workflows/app.yml@v1` here, with inputs
+- **One shared workflow.** Each app's `deploy.yml` only calls `.github/workflows/app.yml@v2` here, with inputs
   for what differs (`site`, `stamp`, `python-test`, `after-build`). Change the steps in `app.yml`; for a
-  breaking change, tag `v2` and move apps over one at a time. After a compatible change, move the `v1` tag.
+  change, tag the next version (`v3`) and move apps over one at a time, checking the first one's deploy before the
+  rest. Tags aren't moved once apps use them.
 - **Version stamp.** The workflow replaces `dev` in every `<span class="version" title="Version">` on the pages
   listed in `stamp` with `v1.<number of commits>` and writes `version.json`. Add the span to each page.
 - **A reload gets the new version.** GitHub Pages lets browsers keep files for ten minutes, so the workflow
